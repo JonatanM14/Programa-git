@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* { 
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+font-family: "Poppins", sans-serif;
+font-size: 1.2rem;
+min-height: 100%;
+}
+
+.virtual-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+.header {
+    grid-area: header;
+    background-color: rgb(43, 146, 43);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 3rem;
+    gap: 12px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    border-radius: 100%;
+}
+.navbar {
+    grid-area: navbar;
+    background-color: rgb(90, 223, 141);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    font-size: 2rem;
+}
+.navbar span {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar span:hover {
+    background-color: rgb(43, 146, 43);
+    color: white;
+    border-radius: 5px;
+}
+.main{
+    grid-area: main;
+    background-color: rgb(135, 202, 152);
+    font-size: 2rem
+}
+.sidebar{
+    grid-area: sidebar;
+    background-color: rgb(95, 212, 115);
+    font-size: 2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.login-form label {
+    font-size: 1.2rem;
+    color: white;
+    align-self: flex-start; /* Alinea los labels a la izquierda */
+}
+
+.login-form input {
+    width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-form button {
+    width: 100%; /* El botón también ocupa todo el ancho disponible */
+    padding: 10px 20px;
+    background-color: rgb(43, 146, 43);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: rgb(34, 120, 34); /* Cambio de color al pasar el cursor */
+}
+
+.forgot-password {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(120, 120, 140);
+    color: white;
+}
+
+.virtual-container{
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+    "header"
+    "navbar"
+    "main"
+    "sidebar"
+    "footer";
+}
+
+@media (min-width: 600px){
+    .virtual-container{
+        grid-template:
+        "header header" 250px
+        "navbar navbar" 120px   
+        "sidebar main" auto
+        "footer footer" 100px;
+        grid-template-columns: 0.7fr 2.5fr;
+    }
+}
+
+/* Estilos para el contenedor del banner */
+.banner-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden; /* Oculta las imágenes que están fuera del área visible */
+    position: relative;
+    display: flex;
+}
+
+/* Estilos para las imágenes del banner */
+.banner-slides {
+    display: flex; /* Pone las imágenes en fila horizontalmente */
+    transition: transform 0.5s ease-in-out; /* Transición suave entre imágenes */
+    width: 300%; /* Multiplicamos el ancho por el número de imágenes */
+}
+
+.banner-slides img {
+    width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+    height: auto;
+    object-fit: cover; /* Asegura que la imagen cubra todo el área del contenedor */
+}
+
+/* Estilos para la barra lateral (sidebar) */
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgb(95, 212, 115);
+    font-size: 1.3rem;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+/* Resalta el encabezado "Ingresa a tu cuenta" */
+.sidebar::before {
+    content: "Ingresa a tu cuenta"; /* Añade el texto como pseudo-elemento */
+    display: block;
+    background-color: rgb(145, 160, 147); /* Color de fondo para resaltar */
+    color: rgb(0, 0, 0); /* Color del texto */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Añade espacio debajo del encabezado */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
